@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-labelledby="title desc">
+  <title id="title">Emblem PRESTO</title>
+  <desc id="desc">Emblem PRESTO berupa perisai biru dengan bintang, orbit, dan aksen kuning.</desc>
+  <defs>
+    <linearGradient id="blue" x1="72" x2="292" y1="50" y2="245" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48c8f0"/>
+      <stop offset="1" stop-color="#1488bf"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="42" x2="322" y1="218" y2="312" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd957"/>
+      <stop offset=".55" stop-color="#f5bd39"/>
+      <stop offset="1" stop-color="#e8a414"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#053c61" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <path d="M80 82c63-40 146-42 211-6" fill="none" stroke="#38bde8" stroke-width="20" stroke-linecap="round"/>
+    <path d="M99 120c51-26 112-28 161-3" fill="none" stroke="#38bde8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M69 169c-30 33-40 78-25 116" fill="none" stroke="#38bde8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M302 153c25 37 27 83 8 123" fill="none" stroke="#38bde8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M76 298c54 37 148 44 228-1" fill="none" stroke="url(#gold)" stroke-width="19" stroke-linecap="round"/>
+    <path d="M129 126c30-16 74-17 104 0l6 4v76c0 32-21 61-57 78-36-17-58-46-58-78v-76z" fill="url(#blue)" stroke="#0b6ea3" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M182 153l14 29 32 4-23 22 6 32-29-15-29 15 6-32-23-22 32-4z" fill="#fff"/>
+    <path d="M181 218l21 39h-42z" fill="#f6bd34"/>
+    <path d="M181 252c20 0 35 12 35 28s-15 28-35 28-35-12-35-28 15-28 35-28z" fill="#24b6e4"/>
+    <path d="M159 279c12-11 31-11 43 0M170 291c6-5 17-5 23 0" fill="none" stroke="#def8ff" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g fill="#36bde8">
+    <rect x="49" y="130" width="20" height="44" rx="5"/>
+    <rect x="29" y="182" width="18" height="18" rx="3"/>
+    <rect x="37" y="216" width="15" height="15" rx="3"/>
+    <rect x="315" y="177" width="18" height="44" rx="5"/>
+    <rect x="337" y="206" width="17" height="17" rx="3"/>
+    <rect x="322" y="240" width="20" height="20" rx="4"/>
+  </g>
+  <g fill="#f4c743">
+    <rect x="64" y="169" width="30" height="30" rx="6"/>
+    <rect x="20" y="272" width="28" height="18" rx="5"/>
+    <rect x="320" y="142" width="30" height="30" rx="6"/>
+  </g>
+</svg>
