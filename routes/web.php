@@ -39,4 +39,7 @@ Route::post('/laporan/simpan', [PageController::class, 'storePrestasi'])
     ->name('prestasi.store');
 
 Route::get('/arsip-prestasi', [PageController::class, 'arsip'])->name('arsip');
+Route::post('/prestasi/{id}/verifikasi', [PageController::class, 'verifikasi'])
+    ->middleware('presto.auth')
+    ->name('prestasi.verifikasi');
 Route::get('/hall-of-fame', [PageController::class, 'hallOfFame'])->name('hall');

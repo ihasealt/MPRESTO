@@ -19,9 +19,29 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'nim',
         'email',
         'password',
+        'role',
+        'prodi',
+        'avatar',
     ];
+
+    /**
+     * Relasi ke Prestasi Mahasiswa
+     */
+    public function prestasis()
+    {
+        return $this->hasMany(Prestasi::class);
+    }
+
+    /**
+     * Cek apakah user adalah admin
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
 
     /**
      * The attributes that should be hidden for serialization.

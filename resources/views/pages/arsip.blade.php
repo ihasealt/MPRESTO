@@ -191,7 +191,21 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                @if (session('user_role') === 'admin')
+                    <form id="verifyForm" method="POST" action="" style="display: flex; gap: 8px;">
+                        @csrf
+                        <input type="hidden" name="action" id="verifyAction" value="approve">
+                        <button type="submit" class="btn btn-primary" onclick="document.getElementById('verifyAction').value='approve'" style="background: #10b981; border-color: #10b981;">
+                            ✓ Setujui Prestasi
+                        </button>
+                        <button type="submit" class="btn btn-secondary" onclick="document.getElementById('verifyAction').value='reject'" style="color: #ef4444; border-color: #fca5a5;">
+                            ✕ Tolak
+                        </button>
+                    </form>
+                @else
+                    <div></div>
+                @endif
                 <button type="button" class="btn btn-secondary" onclick="closeDetailModal()">Tutup</button>
             </div>
         </div>
@@ -213,6 +227,11 @@
         document.getElementById('modalTanggal').textContent = data.tanggal;
         document.getElementById('modalCatatan').textContent = data.catatan || 'Dokumen telah terverifikasi oleh tim kemahasiswaan.';
         document.getElementById('modalBerkas').textContent = data.berkas || 'berkas_prestasi.pdf';
+
+        const verifyForm = document.getElementById('verifyForm');
+        if (verifyForm) {
+            verifyForm.action = '/prestasi/' + data.id + '/verifikasi';
+        }
 
         const statusPill = document.getElementById('modalStatusPill');
         statusPill.className = 'status-pill';
