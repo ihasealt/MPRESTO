@@ -30,5 +30,13 @@ Route::get('/laporan', [PageController::class, 'laporan'])
     ->middleware('presto.auth')
     ->name('laporan');
 
+Route::get('/laporan/tambah', [PageController::class, 'tambahPrestasi'])
+    ->middleware('presto.auth')
+    ->name('prestasi.tambah');
+
+Route::post('/laporan/simpan', [PageController::class, 'storePrestasi'])
+    ->middleware('presto.auth')
+    ->name('prestasi.store');
+
 Route::get('/arsip-prestasi', [PageController::class, 'arsip'])->name('arsip');
 Route::get('/hall-of-fame', [PageController::class, 'hallOfFame'])->name('hall');

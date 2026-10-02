@@ -5,8 +5,14 @@
 
     <div class="topbar-actions">
         @if (session('is_logged_in'))
-            <span class="role-pill">{{ ucfirst(session('user_role', 'mahasiswa')) }}</span>
-            <form action="{{ route('logout') }}" method="post">
+            <div class="user-profile-badge">
+                <div class="avatar-circle">{{ strtoupper(substr(session('user_name', 'M'), 0, 1)) }}</div>
+                <div class="user-profile-text">
+                    <span class="user-profile-name">{{ session('user_name', 'Mahasiswa') }}</span>
+                    <span class="role-pill">{{ session('user_role') === 'admin' ? 'Admin HIMATRIS' : 'Mahasiswa' }}</span>
+                </div>
+            </div>
+            <form action="{{ route('logout') }}" method="post" class="logout-form">
                 @csrf
                 <button class="btn btn-outline" type="submit">Keluar</button>
             </form>

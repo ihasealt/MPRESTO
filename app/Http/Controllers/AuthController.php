@@ -21,17 +21,27 @@ class AuthController extends Controller
             'identifier' => ['required', 'string'],
             'password' => ['required', 'string'],
         ], [
-            'identifier.required' => 'Email/NIM wajib diisi.',
+            'identifier.required' => 'Email atau NIM Mahasiswa wajib diisi.',
             'password.required' => 'Kata sandi wajib diisi.',
         ]);
 
-        $role = str_contains(strtolower($validated['identifier']), 'himatris') ? 'admin' : 'mahasiswa';
+        $idLower = strtolower($validated['identifier']);
+        $role = (str_contains($idLower, 'himatris') || str_contains($idLower, 'admin')) ? 'admin' : 'mahasiswa';
+
+        $userName = $role === 'admin' ? 'Admin HIMATRIS' : 'Nadya Adella Putri';
+        $userIdentifier = $validated['identifier'];
+
+        // If user entered NIM 240102054 or anything similar
+        if (str_contains($idLower, 'nadya') || $idLower === '240102054') {
+            $userName = 'Nadya Adella Putri';
+            $userIdentifier = '240102054';
+        }
 
         session([
             'is_logged_in' => true,
             'user_role' => $role,
-            'user_name' => $role === 'admin' ? 'Admin HIMATRIS' : 'Mahasiswa PRESTO',
-            'user_identifier' => $validated['identifier'],
+            'user_name' => $userName,
+            'user_identifier' => $userIdentifier,
         ]);
 
         return redirect()->route('laporan');
@@ -40,7 +50,7 @@ class AuthController extends Controller
     public function register(): View
     {
         return view('auth.register', [
-            'title' => 'Daftar Akun',
+            'title' => 'Daftar Akun PRESTO',
         ]);
     }
 
@@ -65,9 +75,10 @@ class AuthController extends Controller
             'user_role' => 'mahasiswa',
             'user_name' => $validated['name'],
             'user_identifier' => $validated['identifier'],
+            'user_email' => $validated['email'],
         ]);
 
-        return redirect()->route('laporan')->with('success', 'Akun berhasil dibuat. Selamat datang di PRESTO.');
+        return redirect()->route('laporan')->with('success', 'Akun berhasil dibuat. Selamat datang di PRESTO!');
     }
 
     public function logout(Request $request): RedirectResponse

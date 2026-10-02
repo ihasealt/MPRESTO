@@ -9,10 +9,6 @@
 @endphp
 
 <aside class="sidebar">
-    <a class="sidebar-logo" href="{{ route('dashboard') }}">
-        <img src="{{ asset('assets/img/presto-logo.svg') }}" alt="Logo PRESTO">
-    </a>
-
     <nav class="side-nav" aria-label="Navigasi utama">
         @foreach ($items as $item)
             <a class="side-link {{ $active === $item['key'] ? 'is-active' : '' }}" href="{{ $item['url'] }}">
