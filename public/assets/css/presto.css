@@ -223,10 +223,33 @@ button, input, select, textarea {
 }
 
 .sidebar {
+    position: sticky;
+    top: 64px;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    align-self: start;
+    z-index: 40;
     background: var(--navy);
     padding: 24px 14px;
     color: #e2e8f0;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .side-nav {
@@ -2186,6 +2209,10 @@ button, input, select, textarea {
     }
 
     .sidebar {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+        align-self: auto;
         padding: 10px 14px;
     }
 
